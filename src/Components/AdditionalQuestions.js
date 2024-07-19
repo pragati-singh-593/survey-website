@@ -15,6 +15,10 @@ export default function AdditionalQuestions({ addQuestionData }) {
   // Function to handle form submission 
   const submit = (e) => { 
     e.preventDefault(); 
+
+    let finalProfession = profession;
+    let finalInterest = interest;
+    let finalReference = reference;
   
     // Check if all fields are filled 
     if (!profession || !interest || !reference) { 
@@ -22,18 +26,18 @@ export default function AdditionalQuestions({ addQuestionData }) {
     } else { 
       // If the selected option is "Others", use the value from the corresponding text input 
       if (profession === "Others") { 
-        profession = otherProfession; 
+        finalProfession = otherProfession; 
       } 
       if (interest === "Others") { 
-        interest = otherInterest; 
+        finalInterest = otherInterest; 
       } 
       if (reference === "Others") { 
-        reference = otherReference; 
+        finalReference = otherReference; 
       } 
   
       // Log the selected options and call the addQuestionData function with the data 
-      console.log(profession, interest, reference); 
-      addQuestionData(profession, interest, reference); 
+      console.log(finalProfession, finalInterest, finalReference); 
+      addQuestionData(finalProfession, finalInterest, finalReference); 
   
       // Navigate to the next page 
       navigate('/details'); 
